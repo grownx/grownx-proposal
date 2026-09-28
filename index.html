@@ -590,7 +590,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
       <div class="plan-type-wrap">
         <button class="plan-type-btn active" id="btn-meta" onclick="switchPlanType('meta')">🎯 Meta Ads — Performance</button>
         <button class="plan-type-btn" id="btn-fixed" onclick="switchPlanType('fixed')">💰 Meta Ads — Fixed Plans</button>
-        <button class="plan-type-btn" id="btn-social" onclick="switchPlanType('social')" style="display:none;">📱 Social Media Packages</button>
+        <button class="plan-type-btn" id="btn-social" onclick="switchPlanType('social')">📱 Social Media Packages</button>
       </div>
     </div>
 
@@ -897,6 +897,212 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
     <!-- SOCIAL MEDIA PACKAGES (existing) -->
     <div class="social-plans-wrap" id="social-plan-section">
 
+    <!-- ═════ NEW SOCIAL MEDIA PACKAGES + CUSTOM CALCULATOR ═════ -->
+    <style>
+    .sm-note{font-size:11.5px;color:var(--text3);line-height:1.7;margin-top:14px;}
+    .sm-custom-btn{display:block;margin:36px auto 0;padding:16px 34px;background:transparent;color:var(--c1);border:1px solid rgba(30,202,211,.35);font-family:'Montserrat',sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .3s;}
+    .sm-custom-btn:hover{background:rgba(30,202,211,.1);}
+    #smCalc{display:none;margin-top:28px;padding:34px;background:var(--card);border:1px solid var(--border);position:relative;}
+    #smCalc.open{display:block;animation:smIn .35s ease;}
+    @keyframes smIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .sm-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);font-size:22px;cursor:pointer;}
+    .sm-row{display:grid;grid-template-columns:2fr 90px 130px 120px;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
+    .sm-row.hd{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;}
+    .sm-row input[type=number]{width:100%;background:var(--bg0);border:1px solid var(--border);color:var(--text);font-family:'Montserrat',sans-serif;font-size:13px;padding:10px 12px;outline:none;}
+    .sm-row input:focus{border-color:var(--c1);}
+    .sm-lt{text-align:right;font-weight:700;}
+    .sm-sum{margin-top:26px;padding:24px;background:var(--bg0);border:1px solid var(--border);}
+    .sm-line{display:flex;justify-content:space-between;padding:8px 0;font-size:13px;color:var(--text2);}
+    .sm-total{display:flex;justify-content:space-between;align-items:center;padding-top:16px;margin-top:8px;border-top:1px solid var(--border);}
+    .sm-total b{font-size:30px;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;transition:transform .25s;}
+    .sm-total b.bump{transform:scale(1.06);}
+    .sm-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px;}
+    .sm-acts button{padding:13px 22px;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text2);}
+    .sm-acts button.pri{background:var(--grad);color:#000;border:none;}
+    .sm-meta{display:flex;gap:10px;align-items:center;margin-top:18px;font-size:13px;color:var(--text2);cursor:pointer;}
+    @media(max-width:700px){#smCalc{padding:24px 16px;}.sm-row{grid-template-columns:1fr 1fr;}.sm-row.hd{display:none;}.sm-row>span:first-child{grid-column:1/3;font-weight:700;}.sm-lt{grid-column:1/3;}}
+    </style>
+
+    <div class="reveal">
+      <div class="stag">GrownX</div>
+      <h2 class="sh2">Social Media<br><span class="grad-text">Management Packages</span></h2>
+      <div class="ssub">Fixed monthly packages for content, strategy and account management. Paid advertising is not included.</div>
+    </div>
+
+    <div class="plans-wrap">
+      <div class="plan-card starter reveal d1">
+        <div class="plan-head">
+          <div class="plan-tier">Starter</div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">10,000</span></div>
+          <div class="plan-period">/ month</div>
+          <div class="plan-tagline">A steady content foundation for your brand.</div>
+        </div>
+        <div class="plan-body">
+          <div class="feat-group"><ul class="feat-list">
+            <li><span class="ck">✓</span> 2 reels per month</li>
+            <li><span class="ck">✓</span> 4 static posts per month</li>
+            <li><span class="ck">✓</span> 4 stories per month</li>
+            <li><span class="ck">✓</span> Basic social media strategy</li>
+            <li><span class="ck">✓</span> Monthly content calendar</li>
+            <li><span class="ck">✓</span> Captions and relevant hashtags</li>
+            <li><span class="ck">✓</span> Content scheduling and publishing</li>
+            <li><span class="ck">✓</span> Basic account management</li>
+            <li><span class="ck">✓</span> Monthly performance report</li>
+          </ul></div>
+          <div class="sm-note">Photoshoot/video sessions are not included. They can be added through the custom plan.</div>
+          <div class="plan-cta-wrap" style="margin-top:18px;"><a href="#contact" class="plan-cta" onclick="smChoose('Starter',10000);return false;">Choose Plan</a></div>
+        </div>
+      </div>
+
+      <div class="plan-card popular reveal d2">
+        <div class="plan-head">
+          <div class="plan-badge">★ Most Popular</div>
+          <div class="plan-tier">Growth</div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">15,000</span></div>
+          <div class="plan-period">/ month</div>
+          <div class="plan-tagline">More reels and stories to grow your reach.</div>
+        </div>
+        <div class="plan-body">
+          <div class="feat-group"><ul class="feat-list">
+            <li><span class="ck">✓</span> 4 reels per month</li>
+            <li><span class="ck">✓</span> 4 static posts per month</li>
+            <li><span class="ck">✓</span> 8 stories per month</li>
+            <li><span class="ck">✓</span> Social media strategy</li>
+            <li><span class="ck">✓</span> Monthly content calendar</li>
+            <li><span class="ck">✓</span> Captions and relevant hashtags</li>
+            <li><span class="ck">✓</span> Content scheduling and publishing</li>
+            <li><span class="ck">✓</span> Account management</li>
+            <li><span class="ck">✓</span> Monthly performance report</li>
+          </ul></div>
+          <div class="sm-note">Photoshoot/video sessions are not included. They can be added through the custom plan.</div>
+          <div class="plan-cta-wrap" style="margin-top:18px;"><a href="#contact" class="plan-cta" onclick="smChoose('Growth',15000);return false;">Choose Plan</a></div>
+        </div>
+      </div>
+
+      <div class="plan-card scale reveal d3">
+        <div class="plan-head">
+          <div class="plan-tier">Scale</div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">20,000</span></div>
+          <div class="plan-period">/ month</div>
+          <div class="plan-tagline">High-volume content with advanced strategy.</div>
+        </div>
+        <div class="plan-body">
+          <div class="feat-group"><ul class="feat-list">
+            <li><span class="ck">✓</span> 6 reels per month</li>
+            <li><span class="ck">✓</span> 4 static posts per month</li>
+            <li><span class="ck">✓</span> 12 stories per month</li>
+            <li><span class="ck">✓</span> Advanced social media strategy</li>
+            <li><span class="ck">✓</span> Monthly content calendar</li>
+            <li><span class="ck">✓</span> Captions and relevant hashtags</li>
+            <li><span class="ck">✓</span> Content scheduling and publishing</li>
+            <li><span class="ck">✓</span> Account management</li>
+            <li><span class="ck">✓</span> Monthly performance report</li>
+          </ul></div>
+          <div class="sm-note">Photoshoot/video sessions are not included. They can be added through the custom plan.</div>
+          <div class="plan-cta-wrap" style="margin-top:18px;"><a href="#contact" class="plan-cta" onclick="smChoose('Scale',20000);return false;">Choose Plan</a></div>
+        </div>
+      </div>
+    </div>
+
+    <button class="sm-custom-btn" id="smOpen" onclick="smToggle(true)">Build Your Custom Plan</button>
+
+    <div id="smCalc">
+      <button class="sm-close" onclick="smToggle(false)" aria-label="Close calculator">×</button>
+      <h3 style="font-size:22px;font-weight:800;margin-bottom:8px;">Build Your Custom Social Media Plan</h3>
+      <div style="font-size:13px;color:var(--text2);margin-bottom:22px;">Customize your services, choose quantities, and get a tailored monthly estimate.</div>
+      <div class="sm-row hd"><span>Service</span><span>Qty</span><span>Unit price (₹)</span><span class="sm-lt">Total</span></div>
+      <div id="smRows"></div>
+      <label class="sm-meta"><input type="checkbox" id="smMeta"> Add Meta Ads Management — ₹5,000/month <span style="color:var(--text3)">(ad spend not included)</span></label>
+      <div class="sm-sum">
+        <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--text3);font-weight:700;margin-bottom:8px;">Your Custom Plan</div>
+        <div class="sm-line"><span>Selected social media services</span><span id="smSub">₹0</span></div>
+        <div class="sm-line"><span>Account management fee</span><span id="smFee">₹0</span></div>
+        <div class="sm-line" id="smMetaLine" style="display:none;"><span>Meta Ads management</span><span>₹5,000</span></div>
+        <div class="sm-total"><span style="font-weight:700;">Final monthly total</span><b id="smTotal">₹0</b></div>
+        <div class="sm-note">Ad spend is not included. Final pricing may be confirmed by the GrownX team after reviewing your requirements.</div>
+      </div>
+      <div class="sm-acts">
+        <button onclick="smReset()">Reset</button>
+        <button onclick="smCopy()" id="smCopyBtn">Copy Quote</button>
+        <button class="pri" onclick="smRequest()">Request This Plan</button>
+      </div>
+    </div>
+
+    <script>
+    (function(){
+      var SVC=[['Static post',500],['Carousel design',750],['Story',250],['Reels',1500],['Photoshoot/video session',5000],['Content planning session',1000],['Revision beyond included limit',300]];
+      var META=5000;
+      function inr(n){return '₹'+Number(n).toLocaleString('en-IN');}
+      function num(v){v=parseFloat(v);return isFinite(v)&&v>0?v:0;}
+      var rows=document.getElementById('smRows');
+      SVC.forEach(function(s,i){
+        var d=document.createElement('div');d.className='sm-row';
+        d.innerHTML='<span>'+s[0]+'</span><input type="number" min="0" step="1" value="0" id="smQ'+i+'" aria-label="'+s[0]+' quantity"><input type="number" min="0" step="50" value="'+s[1]+'" id="smP'+i+'" aria-label="'+s[0]+' unit price" disabled><span class="sm-lt" id="smL'+i+'">₹0</span>';
+        rows.appendChild(d);
+      });
+      // single calculation function
+      function calc(){
+        var items=[],sub=0;
+        SVC.forEach(function(s,i){var q=num(document.getElementById('smQ'+i).value),p=num(document.getElementById('smP'+i).value),t=q*p;
+          document.getElementById('smL'+i).textContent=inr(t);sub+=t;if(q>0)items.push({n:s[0],q:q,p:p,t:t});});
+        var fee=sub<=0?0:(sub<10000?2000:(sub<=15000?4000:6000));
+        var meta=document.getElementById('smMeta').checked?META:0;
+        return {items:items,sub:sub,fee:fee,meta:meta,total:sub+fee+meta};
+      }
+      window.smCalcState=calc;
+      function render(){
+        var r=calc();
+        document.getElementById('smSub').textContent=inr(r.sub);
+        document.getElementById('smFee').textContent=inr(r.fee);
+        document.getElementById('smMetaLine').style.display=r.meta?'flex':'none';
+        var t=document.getElementById('smTotal');t.textContent=inr(r.total);
+        t.classList.add('bump');setTimeout(function(){t.classList.remove('bump');},200);
+      }
+      document.getElementById('smCalc').addEventListener('input',render);
+      document.getElementById('smCalc').addEventListener('change',function(e){
+        if(e.target.type==='number'){e.target.value=num(e.target.value);}render();});
+      function quote(){
+        var r=calc(),L=['GrownX — Custom Plan',''];
+        r.items.forEach(function(i){L.push(i.n+': '+i.q+' × '+inr(i.p)+' = '+inr(i.t));});
+        L.push('','Social media services subtotal: '+inr(r.sub),'Account management fee: '+inr(r.fee),
+          'Meta Ads management: '+(r.meta?inr(r.meta):'Not selected'),'','Total monthly estimate: '+inr(r.total),'','Ad spend: Not included.');
+        return L.join('\n');
+      }
+      window.smToggle=function(open){
+        var c=document.getElementById('smCalc');c.classList.toggle('open',open);
+        document.getElementById('smOpen').style.display=open?'none':'block';
+        if(open){render();c.scrollIntoView({behavior:'smooth',block:'start'});}
+      };
+      window.smReset=function(){
+        SVC.forEach(function(s,i){document.getElementById('smQ'+i).value=0;document.getElementById('smP'+i).value=s[1];});
+        document.getElementById('smMeta').checked=false;render();
+      };
+      window.smCopy=function(){
+        var q=quote(),b=document.getElementById('smCopyBtn');
+        function ok(){b.textContent='Copied ✓';setTimeout(function(){b.textContent='Copy Quote';},1600);}
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(q).then(ok,function(){alert(q);});}
+        else{var t=document.createElement('textarea');t.value=q;document.body.appendChild(t);t.select();try{document.execCommand('copy');ok();}catch(e){alert(q);}document.body.removeChild(t);}
+      };
+      function fillForm(planLabel,msg){
+        var f=document.querySelector('.contact-right'),sel=f.querySelector('select'),ta=f.querySelector('textarea');
+        for(var i=0;i<sel.options.length;i++){if(sel.options[i].text===planLabel){sel.selectedIndex=i;break;}}
+        ta.value=msg;
+        document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+      }
+      window.smRequest=function(){
+        var r=calc();
+        if(r.total<=0){alert('Please add at least one service or Meta Ads before requesting a plan.');return;}
+        fillForm('Social Media — Custom Plan',quote());
+      };
+      window.smChoose=function(name,price){
+        fillForm('Social Media — '+name+' — '+inr(price)+'/month','I am interested in the Social Media '+name+' package ('+inr(price)+'/month).');
+      };
+    })();
+    </script>
+
+    <!-- legacy social packages (kept, hidden) -->
+    <div id="social-legacy" style="display:none;">
+
     <!-- BILLING TOGGLE -->
     <div class="billing-toggle-wrap reveal">
       <span class="billing-label">Billing Cycle</span>
@@ -1124,6 +1330,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
       </div><!-- end compare-scroll -->
     </div>
 
+    </div><!-- end social-legacy -->
     </div><!-- end social-plans-wrap -->
 
     
@@ -1315,6 +1522,10 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
             <option>Meta Ads Fixed — Starter — ₹12,999/month</option>
             <option>Meta Ads Fixed — Growth — ₹17,999/month</option>
             <option>Meta Ads Fixed — Scale — ₹22,999/month</option>
+            <option>Social Media — Starter — ₹10,000/month</option>
+            <option>Social Media — Growth — ₹15,000/month</option>
+            <option>Social Media — Scale — ₹20,000/month</option>
+            <option>Social Media — Custom Plan</option>
             <option>Custom Solution</option>
           </select>
         </div>
@@ -1454,6 +1665,7 @@ function switchPlanType(type) {
   var metaSection = document.getElementById('meta-plan-section');
   var fixedSection = document.getElementById('meta-fixed-section');
   var socialSection = document.getElementById('social-plan-section');
+  var commonSection = document.getElementById('meta-common-section');
   var btnMeta = document.getElementById('btn-meta');
   var btnFixed = document.getElementById('btn-fixed');
   var btnSocial = document.getElementById('btn-social');
@@ -1462,6 +1674,7 @@ function switchPlanType(type) {
   metaSection.style.display = 'none';
   fixedSection.style.display = 'none';
   socialSection.style.display = 'none';
+  commonSection.style.display = (type === 'social') ? 'none' : 'block';
   btnMeta.classList.remove('active');
   btnFixed.classList.remove('active');
   btnSocial.classList.remove('active');
