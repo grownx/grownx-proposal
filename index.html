@@ -588,14 +588,14 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
     <div class="reveal" style="margin-bottom:8px;">
       <div class="plan-type-label">Select Plan Type</div>
       <div class="plan-type-wrap">
-        <button class="plan-type-btn active" id="btn-meta" onclick="switchPlanType('meta')">🎯 Meta Ads — Performance</button>
-        <button class="plan-type-btn" id="btn-fixed" onclick="switchPlanType('fixed')">💰 Meta Ads — Fixed Plans</button>
+        <button class="plan-type-btn" id="btn-meta" style="display: none;" onclick="switchPlanType('meta')">🎯 Meta Ads — Performance</button>
+        <button class="plan-type-btn active" id="btn-fixed" onclick="switchPlanType('fixed')">💰 Meta Ads</button>
         <button class="plan-type-btn" id="btn-social" onclick="switchPlanType('social')">📱 Social Media Packages</button>
       </div>
     </div>
 
     <!-- META ADS PERFORMANCE PLAN -->
-    <div class="meta-plan-wrap active" id="meta-plan-section">
+    <div class="meta-plan-wrap" id="meta-plan-section">
 
       <!-- HOW IT WORKS -->
       <div class="meta-how-grid reveal">
@@ -696,7 +696,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
     </div><!-- end meta-plan-wrap -->
 
     <!-- META ADS FIXED PLANS -->
-    <div class="meta-plan-wrap" id="meta-fixed-section">
+    <div class="meta-plan-wrap active" id="meta-fixed-section">
 
       <!-- ═══════════ META ADS — FIXED PLANS ═══════════ -->
       <div class="reveal">
@@ -713,7 +713,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
             <div class="plan-tier">Starter</div>
             <div class="plan-price-row">
               <span class="plan-sym">₹</span>
-              <span class="plan-amt">12,999</span>
+              <span class="plan-amt">9,999</span>
             </div>
             <div class="plan-period">/ Month + GST</div>
             <div class="plan-tagline">For businesses starting with paid advertising.</div>
@@ -751,7 +751,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
             <div class="plan-tier">Growth ⭐</div>
             <div class="plan-price-row">
               <span class="plan-sym">₹</span>
-              <span class="plan-amt">17,999</span>
+              <span class="plan-amt">14,999</span>
             </div>
             <div class="plan-period">/ Month + GST</div>
             <div class="plan-tagline">For businesses looking for consistent lead generation.</div>
@@ -791,7 +791,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
             <div class="plan-tier">Scale</div>
             <div class="plan-price-row">
               <span class="plan-sym">₹</span>
-              <span class="plan-amt">22,999</span>
+              <span class="plan-amt">19,999</span>
             </div>
             <div class="plan-period">/ Month + GST</div>
             <div class="plan-tagline">For businesses ready to increase their advertising scale.</div>
@@ -833,10 +833,10 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
     <div id="meta-common-section">
 
       <!-- CREATIVE PRODUCTION -->
-      <div class="reveal" style="margin-bottom:16px;">
+      <div class="reveal" style="margin-bottom:16px; display: none;">
         <div class="section-sublabel">Creative Production</div>
       </div>
-      <div class="custom-grid reveal" style="margin-bottom:16px;">
+      <div class="custom-grid reveal" style="margin-bottom:16px; display: none;">
         <div class="custom-item"><span class="custom-ico">🖼️</span><div><div class="custom-item-name">Static Creative</div><div class="custom-item-price">₹500 / creative</div></div></div>
         <div class="custom-item"><span class="custom-ico">🎞️</span><div><div class="custom-item-name">Video/Reel Ad</div><div class="custom-item-price">₹1,500–₹2,500 / creative</div></div></div>
         <div class="custom-item"><span class="custom-ico">🎥</span><div><div class="custom-item-name">Shoot Session</div><div class="custom-item-price">₹3,500 / session</div></div></div>
@@ -933,7 +933,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
       <div class="plan-card starter reveal d1">
         <div class="plan-head">
           <div class="plan-tier">Starter</div>
-          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">10,000</span></div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">9,999</span></div>
           <div class="plan-period">/ month</div>
           <div class="plan-tagline">A steady content foundation for your brand.</div>
         </div>
@@ -958,7 +958,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
         <div class="plan-head">
           <div class="plan-badge">★ Most Popular</div>
           <div class="plan-tier">Growth</div>
-          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">15,000</span></div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">14,999</span></div>
           <div class="plan-period">/ month</div>
           <div class="plan-tagline">More reels and stories to grow your reach.</div>
         </div>
@@ -982,7 +982,7 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
       <div class="plan-card scale reveal d3">
         <div class="plan-head">
           <div class="plan-tier">Scale</div>
-          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">20,000</span></div>
+          <div class="plan-price-row"><span class="plan-sym">₹</span><span class="plan-amt">19,999</span></div>
           <div class="plan-period">/ month</div>
           <div class="plan-tagline">High-volume content with advanced strategy.</div>
         </div>
@@ -1518,13 +1518,13 @@ footer{background:#000;border-top:1px solid var(--border);padding:28px 64px;disp
           <label>Interested Plan</label>
           <select>
             <option value="" disabled selected>Select a plan...</option>
-            <option>Meta Ads — Performance (Pay per Lead)</option>
-            <option>Meta Ads Fixed — Starter — ₹12,999/month</option>
-            <option>Meta Ads Fixed — Growth — ₹17,999/month</option>
-            <option>Meta Ads Fixed — Scale — ₹22,999/month</option>
-            <option>Social Media — Starter — ₹10,000/month</option>
-            <option>Social Media — Growth — ₹15,000/month</option>
-            <option>Social Media — Scale — ₹20,000/month</option>
+            <option style="display: none;">Meta Ads — Performance (Pay per Lead)</option>
+            <option>Meta Ads — Starter — ₹9,999/month</option>
+            <option>Meta Ads — Growth — ₹14,999/month</option>
+            <option>Meta Ads — Scale — ₹19,999/month</option>
+            <option>Social Media — Starter — ₹9,999/month</option>
+            <option>Social Media — Growth — ₹14,999/month</option>
+            <option>Social Media — Scale — ₹19,999/month</option>
             <option>Social Media — Custom Plan</option>
             <option>Custom Solution</option>
           </select>
@@ -1692,8 +1692,8 @@ function switchPlanType(type) {
   }
 }
 // default on load — show meta performance plan
-document.getElementById('meta-plan-section').style.display = 'block';
-document.getElementById('meta-fixed-section').style.display = 'none';
+document.getElementById('meta-plan-section').style.display = 'none';
+document.getElementById('meta-fixed-section').style.display = 'block';
 document.getElementById('social-plan-section').style.display = 'none';
 
 </script>
